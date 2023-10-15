@@ -41,6 +41,7 @@
             bodyContainer.style.border = 'solid blue 1px';
             // bodyContainer.style.width = '960px'; // 59.5
             bodyContainer.style.width = '1080px'; // 67.5 
+            bodyContainer.style.margin = 'auto';
             bodyContainer.style.boxSizing = 'border-box';
             bodyContainer.style.display = 'inline-flex';
             bodyContainer.style.flexWrap = 'wrap';
@@ -54,8 +55,10 @@
             gridButton.setAttribute('id', 'grid-button');
             gridButton.textContent = 'New Grid';
             gridButton.style.width = "250px";
-            gridButton.style.height = '220px'
-            gridButton.style.flex = '1';
+            gridButton.style.height = '100px';
+            gridButton.style.margin = 'auto';
+            gridButton.style.fontSize = '18px';
+            // gridButton.style.flex = '1';
 
             document.body.prepend(gridButton);
 
@@ -63,17 +66,74 @@
 
 
 
-        const gridDiv = document.createElement('div');
+        // const gridDiv = document.createElement('div');
+        //     gridDiv.setAttribute('id', 'originalDiv');
+        //     gridDiv.style.border = 'solid red .5px';
+        //     gridDiv.style.width = '67px';
+        //     gridDiv.style.height = '67px';
+        //     gridDiv.style.boxSizing = 'border-box';
+        //     gridDiv.style.margin = '0';
+        //     gridDiv.style.padding = '0';
+            // gridDiv.addEventListener('mouseover', function() {
+            //     this.style.border = 'solid blue .5px';
+            //     this.style.backgroundColor = 'blue';
+            // })
+
+            // gridDiv.addEventListener('mouseout', function() {
+            //     this.style.border = 'solid red 1px';
+            //     this.style.backgroundColor = 'white';
+            // })
+        
+            const gridDiv = document.createElement('div');
+            bodyContainer.append(gridDiv);
+
+
+        function createGridDiv() {
+
+
+            function gridCalcLayout(number){
+
+                if (number <= 16) {
+                    console.log("Please pick a number between 1 - 100!");
+
+                } else {
+                let answer = number / 16 - .2; // answer 67.5
+                let multiplyAnswer = answer / 16;// multi 4.21875
+                // let multiAnswerDec = Math
+                let divideAnswer = number / multiplyAnswer; //divide 256
+                // console.log(` Number is ${number}`);
+                // console.log(` Answer is ${answer}`);            
+                // console.log(` Multi Answer is ${multiplyAnswer}`);
+                // console.log(` divide answer is ${divideAnswer}`);
+
+                return [`${answer}`, `${multiplyAnswer}`];
+                
+                }
+                }
+
+                function cellCalcSize(){
+                const cellSize = gridCalcLayout(1080);
+                const cellWidthHeight = cellSize[0];
+                const cellDivide = cellSize[1];
+                gridDiv.style.width = `${cellWidthHeight}px`;
+                gridDiv.style.height = `${cellWidthHeight}px`;
+                // console.log(gridDiv.style.height);
+                // console.log(cellDivide);
+                console.log(cellWidthHeight);
+                // console.log(cellSize);
+                return cellSize;
+                }
+                cellCalcSize();
+            
             gridDiv.setAttribute('id', 'originalDiv');
-            // gridDiv.style.backgroundColor = 'red'
             gridDiv.style.border = 'solid red .5px';
-            // gridDiv.style.width = '59.5px';
-            // gridDiv.style.height = '59.5px';
-            gridDiv.style.width = '67px';
-            gridDiv.style.height = '67px';
+            // gridDiv.style.width = '67.3px';
+            // gridDiv.style.height = '67.3px';
             gridDiv.style.boxSizing = 'border-box';
             gridDiv.style.margin = '0';
             gridDiv.style.padding = '0';
+
+
             gridDiv.addEventListener('mouseover', function() {
                 this.style.border = 'solid blue .5px';
                 this.style.backgroundColor = 'blue';
@@ -83,33 +143,32 @@
                 this.style.border = 'solid red 1px';
                 this.style.backgroundColor = 'white';
             })
-        
-        bodyContainer.append(gridDiv);
 
 
-        function createGridDiv() {
+            
             const originalDiv = document.getElementById('originalDiv');
-            originalDiv.setAttribute('class', 'grid-div');
+                originalDiv.setAttribute('class', 'grid-div');
             
             const clonedDiv = originalDiv.cloneNode(true);
             
-            clonedDiv.addEventListener('mouseover', function() {
+                clonedDiv.addEventListener('mouseover', function() {
                 // const bkCol = document.getElementsByClassName('grid-div');
                 this.style.border = 'solid blue 1px';
                 this.style.backgroundColor = 'blue';
                 console.log('mouse over');
-                console.log(clonedDiv);
-            })
-            clonedDiv.addEventListener('mouseout', function() {
+                // console.log(clonedDiv);
+                })
+                clonedDiv.addEventListener('mouseout', function() {
                 // const bkCol = document.getElementsByClassName('grid-div');
                 this.style.border = 'solid red 1px';
                 this.style.backgroundColor = 'white';
                 console.log('mouse out');
-                console.log(clonedDiv);
-            })
+                // console.log(clonedDiv);
+                })
 
-            bodyContainer.append(clonedDiv);
-            return clonedDiv;     
+                bodyContainer.append(clonedDiv);
+                // console.log(clonedDiv);
+                return clonedDiv;     
 
         }
          
@@ -117,39 +176,39 @@
             createGridDiv();
         }
 
-        function gridCalcLayout(number){
+        // function gridCalcLayout(number){
 
-            if (number <= 16) {
-                console.log("number not valid");
+        //     if (number <= 16) {
+        //         console.log("Please pick a number between 1 - 100!");
 
-            } else {
-            let answer = number / 16 ; // answer 67.5
-            let multiplyAnswer = answer / 16;// multi 4.21875
-            // let multiAnswerDec = Math
-            let divideAnswer = number / multiplyAnswer; //divide 256
-            console.log(` Number is ${number}`);
-            console.log(` Answer is ${answer}`);            
-            console.log(` Multi Answer is ${multiplyAnswer}`);
-            console.log(` divide answer is ${divideAnswer}`);
+        //     } else {
+        //     let answer = number / 16 - .2; // answer 67.5
+        //     let multiplyAnswer = answer / 16;// multi 4.21875
+        //     // let multiAnswerDec = Math
+        //     let divideAnswer = number / multiplyAnswer; //divide 256
+        //     console.log(` Number is ${number}`);
+        //     console.log(` Answer is ${answer}`);            
+        //     console.log(` Multi Answer is ${multiplyAnswer}`);
+        //     console.log(` divide answer is ${divideAnswer}`);
 
-            return [`${answer}`, `${multiplyAnswer}`];
+        //     return [`${answer}`, `${multiplyAnswer}`];
                
-            }
-        }
+        //     }
+        // }
 
-        function cellCalcSize(){
-            const cellSize = gridCalcLayout(1080);
-            const cellWidthHeight = cellSize[0];
-            const cellDivide = cellSize[1];
-            // gridDiv.style.width = `${cellWidthHeight}px`;
-            // gridDiv.style.height = `${cellWidthHeight}px`;
-            console.log(gridDiv.style.height);
-            console.log(cellDivide);
-            console.log(cellWidthHeight);
-            console.log(cellSize);
-            return cellSize;
-        }
-        cellCalcSize();
+        // function cellCalcSize(){
+        //     const cellSize = gridCalcLayout(1080);
+        //     const cellWidthHeight = cellSize[0];
+        //     const cellDivide = cellSize[1];
+        //     gridDiv.style.width = `${cellWidthHeight}px`;
+        //     gridDiv.style.height = `${cellWidthHeight}px`;
+        //     console.log(gridDiv.style.height);
+        //     console.log(cellDivide);
+        //     console.log(cellWidthHeight);
+        //     console.log(cellSize);
+        //     return cellSize;
+        // }
+        // cellCalcSize();
         
         
 
