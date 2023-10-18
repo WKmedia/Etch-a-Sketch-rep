@@ -1,219 +1,153 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch A Sketch</title>
-
-    <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            padding:0;
-        }
-        .grid-div:hover{
-            /* background-color: blue; */
-
-        }
-        .grid-div{
-            /* background-color: blue; */
-
-        }
-        body{
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-
-
     <script>
-
-
-///What divided 16 equals cell size for grid 
-
-
-       
-       
-        
+        // Body container
         const bodyContainer = document.createElement('div');
-            bodyContainer.style.border = 'solid blue 1px';
-            // bodyContainer.style.width = '960px'; // 59.5
-            bodyContainer.style.width = '1080px'; // 67.5 
+            bodyContainer.setAttribute('class', 'gridBodyDiv');
+            bodyContainer.style.width = '1240px';
+            bodyContainer.style.height = '964px';
+            bodyContainer.style.border = 'gold solid 1px';
             bodyContainer.style.margin = 'auto';
-            bodyContainer.style.boxSizing = 'border-box';
-            bodyContainer.style.display = 'inline-flex';
-            bodyContainer.style.flexWrap = 'wrap';
-            bodyContainer.style.alignContent = 'flex-start';
+            bodyContainer.style.display = 'flex';
+            bodyContainer.style.alignItems = 'center';
+
         document.body.append(bodyContainer);
+        const subBodyContainer = document.createElement('div');
 
+        const sidePanel = document.createElement('div');
+            sidePanel.setAttribute('id', 'menu-buttons');
+            sidePanel.style.display = 'inline-flex';
+            sidePanel.style.flexDirection = 'column';
+            sidePanel.style.justifyContent = 'center';
 
+        const inputFeild = document.createElement('input');
+        inputFeild.style.height = '60px';
+        inputFeild.style.width = '160px';
+        inputFeild.style.color = 'black';
+        inputFeild.textContent = 'Please enter a number between 1 and 100:';
+        sidePanel.append(inputFeild);
 
+        const gridButtonOptions = document.createElement("button");
+              gridButtonOptions.style.width = '150px';    
+              gridButtonOptions.style.height = '75px'; 
+              gridButtonOptions.textContent = 'Submit';
 
-        gridButton = document.createElement('button');
-            gridButton.setAttribute('id', 'grid-button');
-            gridButton.textContent = 'New Grid';
-            gridButton.style.width = "250px";
-            gridButton.style.height = '100px';
-            gridButton.style.margin = 'auto';
-            gridButton.style.fontSize = '18px';
-            // gridButton.style.flex = '1';
+            ////Mouse click event listener
+              gridButtonOptions.addEventListener('click', function() {
+                this.style.backgroundColor = 'blue';
 
-            document.body.prepend(gridButton);
+                });
 
-
-
-
-
-        // const gridDiv = document.createElement('div');
-        //     gridDiv.setAttribute('id', 'originalDiv');
-        //     gridDiv.style.border = 'solid red .5px';
-        //     gridDiv.style.width = '67px';
-        //     gridDiv.style.height = '67px';
-        //     gridDiv.style.boxSizing = 'border-box';
-        //     gridDiv.style.margin = '0';
-        //     gridDiv.style.padding = '0';
-            // gridDiv.addEventListener('mouseover', function() {
-            //     this.style.border = 'solid blue .5px';
-            //     this.style.backgroundColor = 'blue';
-            // })
-
-            // gridDiv.addEventListener('mouseout', function() {
-            //     this.style.border = 'solid red 1px';
-            //     this.style.backgroundColor = 'white';
-            // })
+            
         
-            const gridDiv = document.createElement('div');
-            bodyContainer.append(gridDiv);
+        const gridButtonOption1 = document.createElement("button");
+              gridButtonOption1.style.width = '150px';    
+              gridButtonOption1.style.height = '75px'; 
+              gridButtonOption1.textContent = 'Submit';
 
 
-        function createGridDiv() {
-
-
-            function gridCalcLayout(number){
-
-                if (number <= 16) {
-                    console.log("Please pick a number between 1 - 100!");
-
-                } else {
-                let answer = number / 16 - .2; // answer 67.5
-                let multiplyAnswer = answer / 16;// multi 4.21875
-                // let multiAnswerDec = Math
-                let divideAnswer = number / multiplyAnswer; //divide 256
-                // console.log(` Number is ${number}`);
-                // console.log(` Answer is ${answer}`);            
-                // console.log(` Multi Answer is ${multiplyAnswer}`);
-                // console.log(` divide answer is ${divideAnswer}`);
-
-                return [`${answer}`, `${multiplyAnswer}`];
+              ////Mouse click event listener
+              gridButtonOption1.addEventListener('click', function() {
+                subBodyContainer.innerHTML = '';
+                // variable for user input
+            let userInput;
+            
+            do {
+                userInput = window.prompt('Please enter a number between 1 and 100:'); //inputFeild;
+                // inputFeild.textContent = 'Please enter a number between 1 and 100:';
                 
+
+                if (userInput === null) {
+                    // The user canceled the prompt
+                    alert('You canceled the prompt.');
+                    break; // Exit the loop
                 }
+
+                userInput = parseInt(userInput);
+
+                if (isNaN(userInput) || userInput < 1 || userInput > 100) {
+                    alert('Invalid input. Please enter a number between 1 and 100.');
                 }
+            } while (isNaN(userInput) || userInput < 1 || userInput > 100);
 
-                function cellCalcSize(){
-                const cellSize = gridCalcLayout(1080);
-                const cellWidthHeight = cellSize[0];
-                const cellDivide = cellSize[1];
-                gridDiv.style.width = `${cellWidthHeight}px`;
-                gridDiv.style.height = `${cellWidthHeight}px`;
-                // console.log(gridDiv.style.height);
-                // console.log(cellDivide);
-                console.log(cellWidthHeight);
-                // console.log(cellSize);
-                return cellSize;
-                }
-                cellCalcSize();
+            if (userInput !== null) {
+                // User entered a valid number in the range
+                createGridCells(userInput);
             
-            gridDiv.setAttribute('id', 'originalDiv');
-            gridDiv.style.border = 'solid red .5px';
-            // gridDiv.style.width = '67.3px';
-            // gridDiv.style.height = '67.3px';
-            gridDiv.style.boxSizing = 'border-box';
-            gridDiv.style.margin = '0';
-            gridDiv.style.padding = '0';
+            subBodyContainer.setAttribute('class', 'gridCellDiv');
+            subBodyContainer.style.border = 'solid blue .5px';
+            subBodyContainer.style.padding = '0px';
+            subBodyContainer.style.width = '650px';
+            subBodyContainer.style.height = '650px';
+            subBodyContainer.style.margin = 'auto';
+            subBodyContainer.style.display = 'grid';
+            subBodyContainer.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`; // 50 columns
+            subBodyContainer.style.gridTemplateRows = `repeat(${userInput}, 1fr)`; // 50 rows
+        
+        bodyContainer.append(subBodyContainer);
+            }
 
+                });
 
-            gridDiv.addEventListener('mouseover', function() {
-                this.style.border = 'solid blue .5px';
-                this.style.backgroundColor = 'blue';
-            })
-
-            gridDiv.addEventListener('mouseout', function() {
-                this.style.border = 'solid red 1px';
-                this.style.backgroundColor = 'white';
-            })
-
-
+              
             
-            const originalDiv = document.getElementById('originalDiv');
-                originalDiv.setAttribute('class', 'grid-div');
+            sidePanel.append(gridButtonOptions);
+            sidePanel.append(gridButtonOption1);
+            bodyContainer.append(sidePanel);
+        
+        // const subBodyContainer = document.createElement('div');
+        //     subBodyContainer.setAttribute('class', 'gridCellDiv');
+        //     subBodyContainer.style.border = 'solid blue .5px';
+        //     subBodyContainer.style.padding = '0px';
+        //     subBodyContainer.style.width = '960px';
+        //     subBodyContainer.style.height = '960px';
+        //     subBodyContainer.style.margin = 'auto';
+        //     subBodyContainer.style.display = 'grid';
+        //     subBodyContainer.style.gridTemplateColumns = 'repeat(50, 1fr)'; // 50 columns
+        //     subBodyContainer.style.gridTemplateRows = 'repeat(50, 1fr)'; // 50 rows
+        
+        // bodyContainer.append(subBodyContainer);
             
-            const clonedDiv = originalDiv.cloneNode(true);
-            
-                clonedDiv.addEventListener('mouseover', function() {
-                // const bkCol = document.getElementsByClassName('grid-div');
-                this.style.border = 'solid blue 1px';
-                this.style.backgroundColor = 'blue';
-                console.log('mouse over');
-                // console.log(clonedDiv);
-                })
-                clonedDiv.addEventListener('mouseout', function() {
-                // const bkCol = document.getElementsByClassName('grid-div');
-                this.style.border = 'solid red 1px';
-                this.style.backgroundColor = 'white';
-                console.log('mouse out');
-                // console.log(clonedDiv);
-                })
 
-                bodyContainer.append(clonedDiv);
-                // console.log(clonedDiv);
-                return clonedDiv;     
-
-        }
-         
-        for (let i = 1; i <= 255; i++){
-            createGridDiv();
-        }
-
-        // function gridCalcLayout(number){
-
-        //     if (number <= 16) {
-        //         console.log("Please pick a number between 1 - 100!");
-
-        //     } else {
-        //     let answer = number / 16 - .2; // answer 67.5
-        //     let multiplyAnswer = answer / 16;// multi 4.21875
-        //     // let multiAnswerDec = Math
-        //     let divideAnswer = number / multiplyAnswer; //divide 256
-        //     console.log(` Number is ${number}`);
-        //     console.log(` Answer is ${answer}`);            
-        //     console.log(` Multi Answer is ${multiplyAnswer}`);
-        //     console.log(` divide answer is ${divideAnswer}`);
-
-        //     return [`${answer}`, `${multiplyAnswer}`];
-               
-        //     }
-        // }
-
-        // function cellCalcSize(){
-        //     const cellSize = gridCalcLayout(1080);
-        //     const cellWidthHeight = cellSize[0];
-        //     const cellDivide = cellSize[1];
-        //     gridDiv.style.width = `${cellWidthHeight}px`;
-        //     gridDiv.style.height = `${cellWidthHeight}px`;
-        //     console.log(gridDiv.style.height);
-        //     console.log(cellDivide);
-        //     console.log(cellWidthHeight);
-        //     console.log(cellSize);
-        //     return cellSize;
-        // }
-        // cellCalcSize();
+            ///variable for templateColumns
+            //variable for templateRows
+            //variable for gridSize
         
         
-
-        // createGridDiv()
-
-    </script>
+        // Function to create grid cells
+        function createGridCells(n) {
+            let gridSize = n; // Change this to adjust the grid size
+            const totalCells = gridSize * gridSize;
+            
+            for (let i = 0; i < totalCells; i++) {
+                const gridCell = document.createElement('div');
+                gridCell.setAttribute('class', 'grid-cell');
+                gridCell.style.border = 'solid 1px red';
+                
+                // Mouseover event listener
+                gridCell.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = 'blue';
+                    
+                });
+                
+                // Mouseout event listener
+                gridCell.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = '';
+                });
+        
+                subBodyContainer.append(gridCell);
+            }
+        }
+        
+        
+        </script>
+        
 </body>
 </html>
