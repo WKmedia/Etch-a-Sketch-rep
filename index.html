@@ -8,52 +8,156 @@
 </head>
 <body>
     <script>
-        // Body container
+// Body container
         const bodyContainer = document.createElement('div');
             bodyContainer.setAttribute('class', 'gridBodyDiv');
-            bodyContainer.style.width = '1240px';
-            bodyContainer.style.height = '964px';
+            bodyContainer.style.width = '960px';
+            bodyContainer.style.height = '960px';
             bodyContainer.style.border = 'gold solid 1px';
             bodyContainer.style.margin = 'auto';
             bodyContainer.style.display = 'flex';
+            bodyContainer.style.flexDirection = 'column';
             bodyContainer.style.alignItems = 'center';
 
+  
         document.body.append(bodyContainer);
-        const subBodyContainer = document.createElement('div');
 
+//SubContainer 
+        const subBodyContainer = document.createElement('div');
+            subBodyContainer.setAttribute('class', 'gridCellDiv');
+            subBodyContainer.style.border = 'solid blue .5px';
+            subBodyContainer.style.padding = '0px';
+            subBodyContainer.style.width = '650px';
+            subBodyContainer.style.height = '650px';
+            subBodyContainer.style.margin = 'auto';
+
+
+        bodyContainer.append(subBodyContainer);
+
+        const gridCell = document.createElement('div');
+        // gridCell.style.margin = '0px';
+        // gridCell.style.display = 'flex';
+        
+
+         ///Function Clone grid cell
+//         function gridRow(number) {
+//             number = 16;
+//             // let answer = number * number;
+//             for (let i = 0; i < number; i++) {
+                
+//                 gridCell.setAttribute('class', 'grid-cell');
+//                 gridCell.style.padding= '0px';            
+//                 gridCell.style.border = 'solid red .2px';
+            
+//             const cellWidthHeight = (600 / 16 - 2.3);// / 1.07;
+//             const gridDiv = gridCell.cloneNode(true);  
+                          
+//                 gridDiv.style.width = `${cellWidthHeight}px`;
+//                 gridDiv.style.height = `${cellWidthHeight}px`;
+                
+
+             
+//                 // console.log(gridColumn.value)
+//                 console.log(cellWidthHeight); 
+                  
+            
+                
+
+// ////Mouseover event listener
+//             gridDiv.addEventListener('mouseover', function() {
+//                 // this.style.border = 'solid blue 1px';
+//                 this.style.backgroundColor = 'blue';
+//                 // console.log('mouse over');
+
+//                 });
+// /////MouseOut event listener
+//             gridDiv.addEventListener('mouseout', function() {
+//                 // this.style.border = 'solid red 1px';
+//                 this.style.backgroundColor = '';
+//                 // console.log('mouse out');
+//                 });
+
+
+//                 subBodyContainer.append(gridDiv);
+
+//             } 
+            
+            
+//         }
+//         gridRow();
+//         function gridColumn() {
+//             const cellWidthHeight = (650 / 16);// / 1.07;
+               
+//             const gridDiv = gridCell.cloneNode(true);  
+//                 gridDiv.style.margin = '0px';          
+//                 gridDiv.style.width = `${cellWidthHeight}px`;
+//                 gridDiv.style.height = `${cellWidthHeight}px`; 
+//                 // console.log(gridColumn.value)
+//                 // console.log(cellWidthHeight); 
+//             for(let i = 0; i < 16; i++) {
+                
+//                 gridRow(); 
+                
+//                 // subBodyContainer.append(gridDiv)
+                
+//                 }
+//                 subBodyContainer.style.display = 'flex';
+//                 subBodyContainer.style.flexWrap = 'wrap';
+//                 subBodyContainer.style.justifyContent = 'center';
+               
+
+//                 // subBodyContainer.style.flexDirection = 'column';
+//             //    let gridFlex = document.getElementByClass('gridCellDiv')
+//             //     // gridFlex.style.display = 'flex';
+//             //     gridFlex.style.flexDirection = 'column';
+//             }
+//             gridColumn(); 
+        
+        
+       
+        
+
+
+
+
+//SidePanel
         const sidePanel = document.createElement('div');
             sidePanel.setAttribute('id', 'menu-buttons');
-            sidePanel.style.display = 'inline-flex';
+            sidePanel.style.display = 'flex';
             sidePanel.style.flexDirection = 'column';
             sidePanel.style.justifyContent = 'center';
+        bodyContainer.prepend(sidePanel);
 
-        const inputFeild = document.createElement('input');
+//InputFeild
+        const inputFeild = document.createElement('p');
         inputFeild.style.height = '60px';
         inputFeild.style.width = '160px';
         inputFeild.style.color = 'black';
         inputFeild.textContent = 'Please enter a number between 1 and 100:';
         sidePanel.append(inputFeild);
 
-        const gridButtonOptions = document.createElement("button");
-              gridButtonOptions.style.width = '150px';    
-              gridButtonOptions.style.height = '75px'; 
-              gridButtonOptions.textContent = 'Submit';
 
-            ////Mouse click event listener
-              gridButtonOptions.addEventListener('click', function() {
-                this.style.backgroundColor = 'blue';
 
-                });
+        // const gridButtonOptions = document.createElement("button");
+        //       gridButtonOptions.style.width = '150px';    
+        //       gridButtonOptions.style.height = '75px'; 
+        //       gridButtonOptions.textContent = 'Submit';
+
+        //     ////Mouse click event listener
+        //       gridButtonOptions.addEventListener('click', function() {
+        //         this.style.backgroundColor = 'blue';
+
+        //         });
 
             
-        
+///Button
         const gridButtonOption1 = document.createElement("button");
               gridButtonOption1.style.width = '150px';    
               gridButtonOption1.style.height = '75px'; 
               gridButtonOption1.textContent = 'Submit';
 
 
-              ////Mouse click event listener
+////Mouse click event listener
               gridButtonOption1.addEventListener('click', function() {
                 subBodyContainer.innerHTML = '';
                 // variable for user input
@@ -66,7 +170,7 @@
 
                 if (userInput === null) {
                     // The user canceled the prompt
-                    alert('You canceled the prompt.');
+                    alert('You canceled the prompt.')
                     break; // Exit the loop
                 }
 
@@ -98,9 +202,9 @@
 
               
             
-            sidePanel.append(gridButtonOptions);
+            // sidePanel.append(gridButtonOptions);
             sidePanel.append(gridButtonOption1);
-            bodyContainer.append(sidePanel);
+            
         
         // const subBodyContainer = document.createElement('div');
         //     subBodyContainer.setAttribute('class', 'gridCellDiv');
