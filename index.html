@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+
 // Body container
         const bodyContainer = document.createElement('div');
             bodyContainer.setAttribute('class', 'gridBodyDiv');
@@ -27,99 +28,20 @@
 //SubContainer 
         const subBodyContainer = document.createElement('div');
             subBodyContainer.setAttribute('class', 'gridCellDiv');
-            subBodyContainer.style.border = 'solid blue .5px';
+            // subBodyContainer.style.border = 'solid blue .5px';
             subBodyContainer.style.backgroundColor = '#fff';
             subBodyContainer.style.padding = '0px';
             subBodyContainer.style.boxShadow = '0px 0px 20px 2px rgba(0,0,0,0.2)';
-            subBodyContainer.style.width = '650px';
-            subBodyContainer.style.height = '650px';
+            subBodyContainer.style.width = '641px';
+            subBodyContainer.style.height = '704px';
             subBodyContainer.style.margin = 'auto';
 
 
         bodyContainer.append(subBodyContainer);
 
         const gridCell = document.createElement('div');
-        // gridCell.style.margin = '0px';
-        // gridCell.style.display = 'flex';
-        
-
-         ///Function Clone grid cell
-//         function gridRow(number) {
-//             number = 16;
-//             // let answer = number * number;
-//             for (let i = 0; i < number; i++) {
-                
-//                 gridCell.setAttribute('class', 'grid-cell');
-//                 gridCell.style.padding= '0px';            
-//                 gridCell.style.border = 'solid red .2px';
-            
-//             const cellWidthHeight = (600 / 16 - 2.3);// / 1.07;
-//             const gridDiv = gridCell.cloneNode(true);  
-                          
-//                 gridDiv.style.width = `${cellWidthHeight}px`;
-//                 gridDiv.style.height = `${cellWidthHeight}px`;
-                
-
-             
-//                 // console.log(gridColumn.value)
-//                 console.log(cellWidthHeight); 
-                  
-            
-                
-
-// ////Mouseover event listener
-//             gridDiv.addEventListener('mouseover', function() {
-//                 // this.style.border = 'solid blue 1px';
-//                 this.style.backgroundColor = 'blue';
-//                 // console.log('mouse over');
-
-//                 });
-// /////MouseOut event listener
-//             gridDiv.addEventListener('mouseout', function() {
-//                 // this.style.border = 'solid red 1px';
-//                 this.style.backgroundColor = '';
-//                 // console.log('mouse out');
-//                 });
-
-
-//                 subBodyContainer.append(gridDiv);
-
-//             } 
-            
-            
-//         }
-//         gridRow();
-//         function gridColumn() {
-//             const cellWidthHeight = (650 / 16);// / 1.07;
                
-//             const gridDiv = gridCell.cloneNode(true);  
-//                 gridDiv.style.margin = '0px';          
-//                 gridDiv.style.width = `${cellWidthHeight}px`;
-//                 gridDiv.style.height = `${cellWidthHeight}px`; 
-//                 // console.log(gridColumn.value)
-//                 // console.log(cellWidthHeight); 
-//             for(let i = 0; i < 16; i++) {
-                
-//                 gridRow(); 
-                
-//                 // subBodyContainer.append(gridDiv)
-                
-//                 }
-//                 subBodyContainer.style.display = 'flex';
-//                 subBodyContainer.style.flexWrap = 'wrap';
-//                 subBodyContainer.style.justifyContent = 'center';
-               
-
-//                 // subBodyContainer.style.flexDirection = 'column';
-//             //    let gridFlex = document.getElementByClass('gridCellDiv')
-//             //     // gridFlex.style.display = 'flex';
-//             //     gridFlex.style.flexDirection = 'column';
-//             }
-//             gridColumn(); 
-        
-        
-       
-        
+ 
 
 
 
@@ -129,132 +51,243 @@
             sidePanel.setAttribute('id', 'menu-buttons');
             sidePanel.style.display = 'flex';
             sidePanel.style.flexDirection = 'column';
-            sidePanel.style.justifyContent = 'center';
+            // sidePanel.style.justifyContent = 'center';
+            sidePanel.style.alignItems = 'center';
         bodyContainer.prepend(sidePanel);
 
 //InputFeild
-        const inputFeild = document.createElement('p');
-        inputFeild.style.height = '60px';
-        inputFeild.style.width = '160px';
+        const inputFeild = document.createElement('h2');
+        // inputFeild.style.height = '60px';
+        // inputFeild.style.width = '160px';
         inputFeild.style.color = 'black';
-        inputFeild.textContent = 'Please enter a number between 1 and 100:';
+        inputFeild.textContent = 'Click button and enter a number between 1 and 100:';
         sidePanel.append(inputFeild);
-
-
-
-        // const gridButtonOptions = document.createElement("button");
-        //       gridButtonOptions.style.width = '150px';    
-        //       gridButtonOptions.style.height = '75px'; 
-        //       gridButtonOptions.textContent = 'Submit';
-
-        //     ////Mouse click event listener
-        //       gridButtonOptions.addEventListener('click', function() {
-        //         this.style.backgroundColor = 'blue';
-
-        //         });
+        
+        
 
             
 ///Button
         const gridButtonOption1 = document.createElement("button");
-              gridButtonOption1.style.width = '150px';    
-              gridButtonOption1.style.height = '75px'; 
+            //   gridButtonOption1.style.width = '150px';    
+            //   gridButtonOption1.style.height = '75px'; 
               gridButtonOption1.textContent = 'Submit';
-
+              gridButtonOption1.style.fontSize = '20px'
 
 ////Mouse click event listener
               gridButtonOption1.addEventListener('click', function() {
-                subBodyContainer.innerHTML = '';
-                // variable for user input
-            let userInput;
-            
-            do {
-                userInput = window.prompt('Please enter a number between 1 and 100:'); //inputFeild;
-                // inputFeild.textContent = 'Please enter a number between 1 and 100:';
                 
+        // variable for user input
+                    let userInput;
+                    
+                    do {
+                        userInput = window.prompt('Please enter a number between 1 and 100:'); //inputFeild;
+                        // inputFeild.textContent = 'Please enter a number between 1 and 100:';
+                        
+                        
 
-                if (userInput === null) {
-                    // The user canceled the prompt
-                    alert('You canceled the prompt.')
-                    break; // Exit the loop
-                }
+                        if (userInput === null) {
+                            // The user canceled the prompt
+                            alert('You canceled the prompt.')
+                            break; // Exit the loop
+                        }
 
-                userInput = parseInt(userInput);
+                        userInput = parseInt(userInput);
 
-                if (isNaN(userInput) || userInput < 1 || userInput > 100) {
-                    alert('Invalid input. Please enter a number between 1 and 100.');
-                }
-            } while (isNaN(userInput) || userInput < 1 || userInput > 100);
+                        if (isNaN(userInput) || userInput < 1 || userInput > 100) {
+                            alert('Invalid input. Please enter a number between 1 and 100.');
+                        }
+                    } while (isNaN(userInput) || userInput < 1 || userInput > 100);
 
-            if (userInput !== null) {
-                // User entered a valid number in the range
-                createGridCells(userInput);
-            
-            subBodyContainer.setAttribute('class', 'gridCellDiv');
-            subBodyContainer.style.border = 'solid blue .5px';
-            subBodyContainer.style.padding = '0px';
-            subBodyContainer.style.width = '650px';
-            subBodyContainer.style.height = '650px';
-            subBodyContainer.style.margin = 'auto';
-            subBodyContainer.style.display = 'grid';
-            subBodyContainer.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`; // 50 columns
-            subBodyContainer.style.gridTemplateRows = `repeat(${userInput}, 1fr)`; // 50 rows
-        
-        bodyContainer.append(subBodyContainer);
+                    if (userInput !== null) {
+                        // User entered a valid number in the range
+                        subBodyContainer.innerHTML = '';
+                        
+                        createGridCells(userInput);
+                    
+                    subBodyContainer.setAttribute('class', 'gridCellDiv');
+                    // subBodyContainer.style.border = 'solid blue .5px';
+                    subBodyContainer.style.padding = '0px';
+                    subBodyContainer.style.width = '641px';
+                    subBodyContainer.style.height = '704px';
+                    subBodyContainer.style.margin = 'auto';
+                    subBodyContainer.style.display = 'grid';
+                    subBodyContainer.style.columnGap = '0';
+                    subBodyContainer.style.rowGap = '0';
+                    subBodyContainer.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`; // 50 columns
+                    subBodyContainer.style.gridTemplateRows = `repeat(${userInput}, 1fr)`; // 50 rows
+                    
+                    console.log(userInput);
+
+
+                
+                bodyContainer.append(subBodyContainer);
             }
 
                 });
 
-              
-            
-            // sidePanel.append(gridButtonOptions);
             sidePanel.append(gridButtonOption1);
-            
-        
-        // const subBodyContainer = document.createElement('div');
-        //     subBodyContainer.setAttribute('class', 'gridCellDiv');
-        //     subBodyContainer.style.border = 'solid blue .5px';
-        //     subBodyContainer.style.padding = '0px';
-        //     subBodyContainer.style.width = '960px';
-        //     subBodyContainer.style.height = '960px';
-        //     subBodyContainer.style.margin = 'auto';
-        //     subBodyContainer.style.display = 'grid';
-        //     subBodyContainer.style.gridTemplateColumns = 'repeat(50, 1fr)'; // 50 columns
-        //     subBodyContainer.style.gridTemplateRows = 'repeat(50, 1fr)'; // 50 rows
-        
-        // bodyContainer.append(subBodyContainer);
-            
 
-            ///variable for templateColumns
-            //variable for templateRows
-            //variable for gridSize
-        
-        
+
+       
+
         // Function to create grid cells
         function createGridCells(n) {
             let gridSize = n; // Change this to adjust the grid size
             const totalCells = gridSize * gridSize;
-            
+            const randomColor = getRandomColor();
+
             for (let i = 0; i < totalCells; i++) {
                 const gridCell = document.createElement('div');
                 gridCell.setAttribute('class', 'grid-cell');
-                gridCell.style.border = 'solid 1px red';
+                // gridCell.style.border = 'solid 1px red';
+        
                 
                 // Mouseover event listener
                 gridCell.addEventListener('mouseover', function() {
-                    this.style.backgroundColor = 'blue';
+                    this.style.backgroundColor = randomColor;
+                //     // console.log(randomButtonSelect)
+                //     // console.log(colorButtonSelect)
+                //     // console.log(multiColorButtonSelect)
+                //    if (randomButtonSelect == true) {
+                //     console.log(randomButtonSelect)
+                //         console.log(randomColor);
+                //         this.style.backgroundColor = randomColor; 
+
+                //    } else if (colorButtonSelect == true) {
+                    
+                //         console.log(randomColor);
+                //         this.style.backgroundColor = randomColor;
+
+                //    } else if (multiColorButtonSelect == true) {
+                //         console.log(randomColor);
+                //         this.style.backgroundColor = getRandomColor();
+
+                //    } else {
+                //     return 'Error loading page';
+                //    }
+                                     
                     
                 });
                 
-                // Mouseout event listener
-                gridCell.addEventListener('mouseout', function() {
-                    this.style.backgroundColor = '';
-                });
+                // // Mouseout event listener
+                // gridCell.addEventListener('mouseout', function() {
+                //     this.style.backgroundColor = '';
+                // });
         
                 subBodyContainer.append(gridCell);
             }
         }
         
+        function getRandomColor() {
+            //Generate random values between 0 and 255 for each color component
+            const randomR = Math.floor(Math.random() * 256);
+            const randomG = Math.floor(Math.random() * 256);
+            const randomB = Math.floor(Math.random() * 256);
+
+            const color = `#${randomR.toString(16).padStart(2, '0')}${randomG.toString(16).padStart(2, '0')}${randomB.toString(16).padStart(2, '0')}`;
+
+            return color;
+        }
+        const randomColor = getRandomColor();
+       
+       
+////Radio buttons div       
+        const radioButtonsGroup = document.createElement('div');
+            radioButtonsGroup.style.display = 'flex';
+            radioButtonsGroup.style.justifyContent = 'center';
+            radioButtonsGroup.style.alignItems = 'center';
+            sidePanel.prepend(radioButtonsGroup);
+
+//// Select color title 
+        const inputTitle = document.createElement('h2');
+            // inputTitle.style.height = '60px';
+            // inputTitle.style.width = '160px';
+            inputTitle.style.color = 'black';
+            inputTitle.textContent = 'Select a color style!';
+            sidePanel.prepend(inputTitle);
+///Random button select
+        const randomButtonSelect = document.createElement('input');
+              randomButtonSelect.type = 'radio';
+              randomButtonSelect.name = 'myRadioBtn';
+            //   randomButtonSelect.value = 'option1';
+              randomButtonSelect.id = 'radioOption1';
+              randomButtonSelect.value = 'false';
+              console.log(randomButtonSelect.value);
+              randomButtonSelect.addEventListener('click', function() {
+                    randomButtonSelect.value = 'true';
+                    colorButtonSelect.value = 'false';
+                    multiColorButtonSelect.value = 'false';
+                    console.log(randomButtonSelect.value);
+                    console.log(colorButtonSelect.value);
+                    console.log(multiColorButtonSelect.value);
+              } );
+              randomButtonSelect.textContent = 'Random color';
+        const radioBtnDiv1 = document.createElement('div');
+              radioBtnDiv1.style.display = 'flex';
+              radioBtnDiv1.style.margin = 'auto 10px';
+              radioButtonsGroup.append(radioBtnDiv1);
+        const colorBtnText1 = document.createElement('p');
+              colorBtnText1.textContent = 'Random color';
+              radioBtnDiv1.append(colorBtnText1);
+
+
+//// Color button select
+        const colorButtonSelect = document.createElement('input');        
+              colorButtonSelect.type = 'radio';
+              colorButtonSelect.name = 'myRadioBtn';
+            //   colorButtonSelect.value = 'radioOption2';
+              colorButtonSelect.value = 'false';
+              colorButtonSelect.addEventListener('click', function() {
+                    colorButtonSelect.value = 'true';
+                    randomButtonSelect.value = 'false';
+                    multiColorButtonSelect.value = 'false';
+                    console.log(randomButtonSelect.value);
+                    console.log(colorButtonSelect.value);
+                    console.log(multiColorButtonSelect.value);
+              } )
+        const radioBtnDiv2 = document.createElement('div');
+              radioBtnDiv2.style.display = 'flex';
+              radioBtnDiv2.style.margin = 'auto 10px';
+              radioButtonsGroup.append(radioBtnDiv2);
+        const colorBtnText2 = document.createElement('p');
+              colorBtnText2.textContent = 'Grayscale';
+              radioBtnDiv2.append(colorBtnText2);
+           
+
+//// Multi color button select
+        const multiColorButtonSelect = document.createElement('input');
+              multiColorButtonSelect.type = 'radio';
+              multiColorButtonSelect.name = 'myRadioBtn';
+            //   multiColorButtonSelect.value = 'radioOption3';
+              multiColorButtonSelect.value = 'false';
+              multiColorButtonSelect.textContent = 'Multicolor';
+              multiColorButtonSelect.addEventListener('click', function() {
+                    colorButtonSelect.value = 'false';
+                    randomButtonSelect.value = 'false';
+                    multiColorButtonSelect.value = 'true';
+                    console.log(randomButtonSelect.value);
+                    console.log(colorButtonSelect.value);
+                    console.log(multiColorButtonSelect.value);
+              } )
+
+        const radioBtnDiv3 = document.createElement('div');
+              radioBtnDiv3.style.display = 'flex';
+              radioBtnDiv3.style.margin = 'auto 10px';
+              radioButtonsGroup.append(radioBtnDiv3);
+        const colorBtnText3 = document.createElement('p');
+              colorBtnText3.textContent = 'Multi color';
+              radioBtnDiv3.append(colorBtnText3);      
         
+
+
+        
+            
+
+/// buttons appended
+            radioBtnDiv1.appendChild(randomButtonSelect);
+            radioBtnDiv2.appendChild(colorButtonSelect);
+            radioBtnDiv3.appendChild(multiColorButtonSelect);
+            console.log(radioBtnDiv2);
         </script>
         
 </body>
